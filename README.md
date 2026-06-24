@@ -1,5 +1,7 @@
 # AirIQ
 
+**Live:** https://airiq.100dayaichallenge.com
+
 **Know your air. Breathe easier.** A mobile-first web app that helps residents check their
 local air quality by ZIP code — and understand what it actually means *for them*.
 
