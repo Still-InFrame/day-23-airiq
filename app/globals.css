@@ -1,26 +1,75 @@
 @import "tailwindcss";
 
+/*
+  AirIQ — warm public-service light theme.
+  Single light theme on purpose: AQI status colors must read consistently, so we
+  do not invert with prefers-color-scheme.
+*/
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f7f6f3; /* warm off-white, softer than a gov-site white */
+  --surface: #ffffff;
+  --foreground: #1c1b1a;
+  --muted: #6b6a67;
+  --border: #e7e4de;
+  --accent: #0f6e6e; /* calm teal */
+  --accent-fg: #ffffff;
+
+  /* AQI category colors (US EPA palette) + soft tints for backgrounds */
+  --aqi-good: #2e8b57;
+  --aqi-good-soft: #e3f3e9;
+  --aqi-moderate: #c9a227;
+  --aqi-moderate-soft: #faf3da;
+  --aqi-usg: #e07b39;
+  --aqi-usg-soft: #fceee2;
+  --aqi-unhealthy: #d24b4b;
+  --aqi-unhealthy-soft: #fbe7e7;
+  --aqi-very-unhealthy: #8e4da3;
+  --aqi-very-unhealthy-soft: #f2e7f5;
+  --aqi-hazardous: #7e2230;
+  --aqi-hazardous-soft: #f5e1e4;
+  --aqi-unknown: #6b6a67;
+  --aqi-unknown-soft: #ededeb;
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-surface: var(--surface);
   --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-fg: var(--accent-fg);
+
+  --color-aqi-good: var(--aqi-good);
+  --color-aqi-good-soft: var(--aqi-good-soft);
+  --color-aqi-moderate: var(--aqi-moderate);
+  --color-aqi-moderate-soft: var(--aqi-moderate-soft);
+  --color-aqi-usg: var(--aqi-usg);
+  --color-aqi-usg-soft: var(--aqi-usg-soft);
+  --color-aqi-unhealthy: var(--aqi-unhealthy);
+  --color-aqi-unhealthy-soft: var(--aqi-unhealthy-soft);
+  --color-aqi-very-unhealthy: var(--aqi-very-unhealthy);
+  --color-aqi-very-unhealthy-soft: var(--aqi-very-unhealthy-soft);
+  --color-aqi-hazardous: var(--aqi-hazardous);
+  --color-aqi-hazardous-soft: var(--aqi-hazardous-soft);
+  --color-aqi-unknown: var(--aqi-unknown);
+  --color-aqi-unknown-soft: var(--aqi-unknown-soft);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+}
+
+/* Horizontal scroll strips (forecast) without a visible scrollbar */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
